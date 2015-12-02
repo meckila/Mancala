@@ -1,0 +1,40 @@
+/*GenealogyTree.java
+ * CS230 PSet 8
+ * Amal Tidjani & __________
+ * 4/22/15 */
+
+package javafoundations;
+
+import java.util.Iterator;
+import javafoundations.*;
+import javafoundations.exceptions.*;
+
+public class GenealogyTree<T> implements AncestryTree<T>
+{
+   protected BTNode<T> root;
+   
+   public GenealogyTree(T element)
+   /*Creates a binary tree with the specified elements
+    * as its root. */
+   {
+      root = new BTNode<T>(element);
+   }
+   
+  
+   public T getCoTU() //Center of The Universe
+   /*Returns the element stored in the root (aka CoTU) of the tree. */
+   {
+      if (root == null)
+         throw new EmptyCollectionException("Get CoTU operation failed. "
+                                               + "The tree is empty.");
+      return root.getElement();
+   }
+
+   public static void main(String[] args)
+   {
+      GenealogyTree<String> tree1 = new GenealogyTree<String>("Amal");
+      System.out.println(tree1);
+   }
+}
+   
+   
